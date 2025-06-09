@@ -15,13 +15,94 @@ body {
     position: relative;
   }
   
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 1rem;
+  background-color: #004d40;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hamburguesa oculta por defecto */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-btn .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-btn.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menú horizontal por defecto */
+#navMenu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+#navMenu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Responsive: solo mostrar hamburguesa y menú vertical en pantallas pequeñas */
+@media (max-width: 768px) {
   .menu-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
+    display: flex;
   }
+
+  #navMenu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #004d40;
+    padding: 0 1rem;
+    gap: 1rem;
+    align-items: center;
+    
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  #navMenu.show {
+    padding: 1rem 1rem;
+    max-height: 500px; /* Suficiente para el contenido */
+  }
+}
   
   nav {
     display: none;
@@ -109,9 +190,9 @@ body {
     display: grid;
     gap: 1rem;
     grid-template-areas:
-      "img1 img1 img1"
-      "img2 img3 img4"
-      ". img5 img6";
+      "img1 img2 img3"
+      "img4 . img5 "
+      "img6 img7 img8";
   }
 
   .grid-item {
@@ -130,6 +211,8 @@ body {
   .img4 { grid-area: img4; }
   .img5 { grid-area: img5; }
   .img6 { grid-area: img6; }
+  .img7 { grid-area: img7; }
+  .img8 { grid-area: img8; }
 
   @media (max-width: 768px) {
     .grid-container {
@@ -139,6 +222,8 @@ body {
         "img3"
         "img4"
         "img5"
-        "img6";
+        "img6"
+        "img7"
+        "img8";
     }
   }

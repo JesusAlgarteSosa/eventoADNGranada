@@ -1,5 +1,6 @@
-function toggleMenu() {
-    const nav = document.getElementById('navMenu');
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-  }
+function toggleMenu(button) {
+  button.classList.toggle("open");
+  document.getElementById("navMenu").classList.toggle("show");
+}
+
   
