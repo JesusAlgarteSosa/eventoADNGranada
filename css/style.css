@@ -5,15 +5,6 @@ body {
     color: #333;
   }
   
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #004d40;
-    color: white;
-    padding: 1rem;
-    position: relative;
-  }
   
 /* General reset */
 * {
@@ -29,6 +20,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Imagen a la derecha */
+.logo-right {
+  height: 40px; /* ajusta el tamaño según tu diseño */
+  object-fit: contain;
 }
 
 /* Hamburguesa oculta por defecto */
@@ -80,6 +82,10 @@ header {
 @media (max-width: 768px) {
   .menu-btn {
     display: flex;
+  }
+
+  .logo-right {
+    height: 30px;
   }
 
   #navMenu {
