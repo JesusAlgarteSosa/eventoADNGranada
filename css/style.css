@@ -166,6 +166,11 @@ header {
     margin-bottom: 1rem;
     color: #004d40;
   }
+
+  #patrocinadores ul {
+    padding-left: 1rem; /* o 0 si lo quieres totalmente alineado al título */
+    margin: 0;
+  }
   
   footer {
     text-align: center;
